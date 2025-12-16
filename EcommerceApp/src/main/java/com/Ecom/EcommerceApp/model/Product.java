@@ -9,6 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,7 +29,10 @@ public class Product {
 	private boolean productAvailable;
 	private int stockQuantity;
 	
-	Product(int id,String name, String description,String brand,BigDecimal price,String category,Date releaseDate,boolean productAvailable,int stockQuantity){
+	@Lob
+	private byte[] imagefile;
+	
+	Product(int id,String name, String description,String brand,BigDecimal price,String category,Date releaseDate,boolean productAvailable,int stockQuantity,byte[] imagefile){
 		this.id=id;
 		this.name=name;
 		this.description=description;
@@ -38,6 +42,7 @@ public class Product {
 		this.releaseDate=releaseDate;
 		this.productAvailable=productAvailable;
 		this.stockQuantity=stockQuantity;
+		this.imagefile=imagefile;
 	}
 	
 	public Product(){
@@ -104,6 +109,13 @@ public class Product {
 	}
 	public void setStockQuantity(int stockQuantity) {
 		this.stockQuantity=stockQuantity;
+	}
+	
+	public byte[] getImagefile() {
+		return this.imagefile;
+	}
+	public void setImagefile(byte[] imagefile) {
+		this.imagefile=imagefile;
 	}
 	@Override
 	public String toString() {
