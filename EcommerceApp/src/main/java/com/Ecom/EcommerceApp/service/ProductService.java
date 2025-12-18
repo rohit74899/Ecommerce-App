@@ -59,6 +59,11 @@ public class ProductService {
 		return repo.save(Search);
 	}
 
+	public void DeleteProduct(int id) {
+		// TODO Auto-generated method stub
+		repo.deleteById(id);
+	}
+
 	
 	
 }
