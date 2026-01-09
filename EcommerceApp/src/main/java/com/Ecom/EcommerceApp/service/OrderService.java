@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.Ecom.EcommerceApp.model.Order;
 import com.Ecom.EcommerceApp.model.OrderItem;
@@ -16,20 +17,22 @@ import com.Ecom.EcommerceApp.model.dto.OrderResponse;
 import com.Ecom.EcommerceApp.repo.OrderRepo;
 import com.Ecom.EcommerceApp.repo.Repo;
 
+@Service
 public class OrderService {
 
 	@Autowired
-	static Repo productRepo;
-	static OrderRepo orderRepo;
+	Repo productRepo;
+	@Autowired
+	OrderRepo orderRepo;
 	
 
-	public static List<OrderResponse> getAllOrders() {
+	public List<OrderResponse> getAllOrders() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 
-	public static OrderResponse PlaceOrder(OrderRequest orderRequest) {
+	public OrderResponse PlaceOrder(OrderRequest orderRequest) {
 
 		// Java.util.UUID 
 		// to Generate a Unique ID 

@@ -28,14 +28,14 @@ public class OrderController {
 	@PostMapping("/orders/place")
 	public ResponseEntity<OrderResponse> PlaceOrder(@RequestBody OrderRequest orderRequest) {
 		
-		OrderResponse orderResponse=OrderService.PlaceOrder(orderRequest);
+		OrderResponse orderResponse=orderservice.PlaceOrder(orderRequest);
 		return ResponseEntity.status(HttpStatus.CREATED).body(orderResponse);
 	}
 	
 	@GetMapping("/orders")
 	public ResponseEntity<List<OrderResponse>> GetAllOrders(){
 		
-		List<OrderResponse> orders = OrderService.getAllOrders();
+		List<OrderResponse> orders = orderservice.getAllOrders();
 		
 		return ResponseEntity.status(HttpStatus.OK).body(orders);
 	}
